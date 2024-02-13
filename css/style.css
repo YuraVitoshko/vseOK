@@ -490,7 +490,7 @@ h6 {
   position: relative
 }
 .no-webp .hero::before {
-  background: url(../img/home-page/hero.jpg) 0 0/cover no-repeat fixed
+  background-image: url(../img/home-page/hero.jpg)
 }
 .hero::before {
   content: "";
@@ -498,7 +498,11 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-size: cover
 }
 .hero__container {
   width: 100%;
@@ -843,5 +847,5 @@ h6 {
   }
 }
 .webp .hero::before {
-  background: url(../img/home-page/hero.webp) 0 0/cover no-repeat fixed
+  background-image: url(../img/home-page/hero.webp)
 }
