@@ -488,29 +488,22 @@ h6 {
   width: 100vw;
   height: 100vh
 }
-@supports ((-webkit-clip-path:inset 0 0 0 0) or (clip-path:inset 0 0 0 0)) {
-  .hero__bg {
-    -webkit-clip-path: inset(0 0 0 0);
-    clip-path: inset(0 0 0 0)
-  }
-}
-.hero__fixed-img {
+.hero__bg {
   position: absolute;
   top: 0;
   left: 0;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
-  background-size: cover;
+  width: 100%;
+  height: 100%
+}
+.hero__fixed-img {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1
-}
-@supports ((-webkit-clip-path:inset 0 0 0 0) or (clip-path:inset 0 0 0 0)) {
-  .hero__fixed-img {
-    position: fixed;
-    background-attachment: scroll
-  }
+  z-index: -1;
+  -o-object-fit: cover;
+  object-fit: cover
 }
 .hero__container {
   width: 100%;
@@ -846,5 +839,10 @@ h6 {
   }
   .offer__item:hover .offer__subtitle {
     color: #fff
+  }
+}
+@media screen and (min-color-index:0) and (-webkit-min-device-pixel-ratio:0) {
+  .hero__fixed-img {
+    background-attachment: scroll
   }
 }
