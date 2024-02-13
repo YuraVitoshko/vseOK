@@ -495,12 +495,12 @@ h6 {
   width: 100%;
   height: 100%
 }
-.hero__bg img {
+.hero__fixed-img {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   z-index: -1;
   -o-object-fit: cover;
   object-fit: cover;
@@ -535,10 +535,7 @@ h6 {
   color: #ededed;
   text-shadow: .0625rem .25rem .625rem rgba(0,0,0,.16)
 }
-.offer__container {
-  max-width: 120rem;
-  padding-left: 0;
-  padding-right: 0;
+.offer {
   display: grid;
   grid-template-columns: repeat(3,1fr)
 }
@@ -719,7 +716,7 @@ h6 {
   .content-footer__copyright {
     text-align: center
   }
-  .offer__container {
+  .offer {
     grid-template-columns: auto
   }
   .offer__image {
