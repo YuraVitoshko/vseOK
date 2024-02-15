@@ -1893,7 +1893,37 @@ h6 {
   height: 100vh;
   z-index: -1;
   -o-object-fit: cover;
-  object-fit: cover
+  object-fit: cover;
+  -webkit-animation: img-scale 15s infinite linear;
+  animation: img-scale 15s infinite linear
+}
+@-webkit-keyframes img-scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+@keyframes img-scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
 }
 .hero__container {
   width: 100%;
@@ -1905,7 +1935,28 @@ h6 {
 }
 .hero__content {
   align-self: end;
-  max-width: 38.125rem
+  max-width: 38.125rem;
+  opacity: 0
+}
+.hero__content._watcher-view {
+  -webkit-animation: title-hero 1.3s ease .2s forwards;
+  animation: title-hero 1.3s ease .2s forwards;
+  -webkit-transform: translateY(10%);
+  transform: translateY(10%)
+}
+@-webkit-keyframes title-hero {
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+@keyframes title-hero {
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1
+  }
 }
 .hero__title {
   line-height: 1.1;
