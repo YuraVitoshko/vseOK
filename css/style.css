@@ -2129,6 +2129,11 @@ textarea {
   background-color: #0a0a0a;
   transition: all .3s
 }
+.form-contacts__button:active {
+  border: .0625rem solid #0a0a0a;
+  color: #0a0a0a;
+  background-color: transparent
+}
 @media (min-width:97em) {
   .menu__list {
     -webkit-column-gap: 3rem;
@@ -2280,9 +2285,11 @@ textarea {
   .statistic {
     grid-template-columns: auto
   }
-  .statistic__item:nth-child(1),
-  .statistic__item:nth-child(3) {
+  .statistic__item:nth-child(1) {
     border-right: none
+  }
+  .statistic__item:nth-child(3) {
+    border-left: none
   }
   .statistic__item:nth-child(1),
   .statistic__item:nth-child(2) {
