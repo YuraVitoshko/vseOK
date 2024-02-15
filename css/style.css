@@ -1649,12 +1649,23 @@ h6 {
   background-color: transparent
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 50;
+  transition: all 1.2s ease 0s;
   background: linear-gradient(180deg,#0a0a0a 0,rgba(10,10,10,0) 100%)
+}
+.header._header-scroll {
+  position: fixed;
+  top: -100%;
+  opacity: 0
+}
+.header._header-show {
+  transition: all 1s ease 0s;
+  opacity: 1;
+  top: 0
 }
 .header__container {
   min-height: 5.625rem;
