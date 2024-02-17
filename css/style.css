@@ -159,6 +159,7 @@ h6 {
 }
 .options {
   display: flex;
+  justify-content: center;
   gap: 1.5rem
 }
 .options__item {
@@ -2159,7 +2160,7 @@ textarea {
   gap: 1.5rem
 }
 .form-contacts__line {
-  width: 100%
+  max-width: 100%
 }
 .form-contacts__input {
   width: 100%;
@@ -2169,7 +2170,7 @@ textarea {
   line-height: 1.5;
   border: .0625rem solid #9e9e9e;
   background-color: #fff;
-  border-radius: none!important;
+  border-radius: 0!important;
   transition: all .3s
 }
 .form-contacts__input:placeholder {
@@ -2633,9 +2634,6 @@ textarea {
   .contacts__container {
     gap: 3rem
   }
-  .form-contacts {
-    padding: 3rem 1rem
-  }
   .projects {
     padding-top: 3.75rem;
     padding-bottom: 3.75rem
@@ -2651,6 +2649,9 @@ textarea {
   }
 }
 @media (max-width:29.99875em) {
+  .options__text {
+    font-size: .875rem
+  }
   .footer__map {
     height: 18.75rem
   }
@@ -2659,6 +2660,10 @@ textarea {
   }
   .contacts__form {
     max-width: 20.5rem
+  }
+  .form-contacts {
+    padding: 3rem 1rem;
+    min-width: 100%
   }
   .tabs-projects__controls {
     -webkit-column-gap: 1.5rem;
