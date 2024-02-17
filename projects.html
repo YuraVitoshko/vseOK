@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>HomePage</title>
+	<title>Projects</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -182,90 +182,87 @@
 			</div>
 		</header>
 		<main class="page">
-			<section class="hero">
-				<div class="hero__overlay"></div>
-				<div class="hero__bg">
-					<picture><source srcset="img/home-page/hero.webp" type="image/webp"><img class="hero__fixed-img" src="img/home-page/hero.jpg" alt="Image"></picture>
+			<section class="projects-hero">
+				<div class="projects-hero__bg">
+					<picture><source srcset="img/home-page/hero.webp" type="image/webp"><img src="img/home-page/hero.jpg" alt="Image"></picture>
 				</div>
-				<div class="hero__container">
-					<div data-watch data-watch-once data-prlx-parent class="hero__content">
-						<h2 data-prlx class="hero__title hero__title--en">Vse bude ok!</h2>
-						<h2 data-prlx class="hero__title hero__title--ua">Все просто.</h2>
-						<div data-prlx class="hero__text">We design every project as a one-off YODEZEEN is a multi-award-winning architectural and design studio operating.</div>
+				<div class="projects-hero__container">
+					<div class="projects-hero__content">
+						<h2 data-watch data-watch-once class="projects-hero__title">$699 <br>за дизайн</h2>
 					</div>
 				</div>
 			</section>
-			<!-- <section class="offer">
-					<div class="offer__container">
-						<a href="#" target="_blank" class="offer__item">
-							<div class="offer__image">
-								<picture><source srcset="img/home-page/offer/01.webp" type="image/webp"><img src="img/home-page/offer/01.jpg" alt="Image"></picture>
+			<section class="projects">
+				<div class="projects__container">
+					<div class="projects__breadcrumbs breadcrumbs">
+						<div class="breadcrumbs__inner">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__item">
+									<a href="#" class="breadcrumbs__link">Головна</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<span>Проекти</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="projects__tabs tabs-projects">
+						<div class="tabs-projects__box">
+							<div class="tabs-projects__controls">
+								<button type="button" class="tabs-projects__btn" data-filter="all">Усі</button>
+								<button type="button" class="tabs-projects__btn" data-filter=".classic">Класика</button>
+								<button type="button" class="tabs-projects__btn" data-filter=".loft">Лофт</button>
+								<button type="button" class="tabs-projects__btn" data-filter=".comfort">Комфорт</button>
 							</div>
-							<div class="offer__header">
-								<h3 class="offer__title">Ремонт</h3>
-								<div class="offer__subtitle">Квартири під ключ</div>
+							<div id="projects-container" class="tabs-projects__targets">
+								<a href="#" class="tabs-projects__item item-tabs-projects mix classic">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/01.webp" type="image/webp"><img src="img/projects/01.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Славутич”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects item-tabs-projects--grey mix">
+									<div class="item-tabs-projects__title">Що таке ремонт</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects mix classic">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/02.webp" type="image/webp"><img src="img/projects/02.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Метрополіс”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects item-tabs-projects--grey mix">
+									<div class="item-tabs-projects__title">Що таке візуалізація</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects mix comfort">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/03.webp" type="image/webp"><img src="img/projects/03.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Престиж Холл”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects mix loft">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/04.webp" type="image/webp"><img src="img/projects/04.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Soho”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects mix loft">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/05.webp" type="image/webp"><img src="img/projects/05.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Престиж Холл”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects mix comfort">
+									<div class="item-tabs-projects__image">
+										<picture><source srcset="img/projects/06.webp" type="image/webp"><img src="img/projects/06.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects__label">ЖК “Комфорт Таун”</div>
+								</a>
+								<a href="#" class="tabs-projects__item item-tabs-projects item-tabs-projects--grey mix">
+									<div class="item-tabs-projects__title">Що таке кошторис</div>
+								</a>
 							</div>
-						</a>
-						<a href="#" target="_blank" class="offer__item">
-							<div class="offer__image">
-								<picture><source srcset="img/home-page/offer/02.webp" type="image/webp"><img src="img/home-page/offer/02.jpg" alt="Image"></picture>
-							</div>
-							<div class="offer__header">
-								<h3 class="offer__title">Проекти</h3>
-								<div class="offer__subtitle">Дизайн інтер’єру</div>
-							</div>
-						</a>
-						<a href="#" target="_blank" class="offer__item">
-							<div class="offer__image">
-								<picture><source srcset="img/home-page/offer/03.webp" type="image/webp"><img src="img/home-page/offer/03.jpg" alt="Image"></picture>
-							</div>
-							<div class="offer__header">
-								<h3 class="offer__title">Шоурум</h3>
-								<div class="offer__subtitle">Магазин меблів</div>
-							</div>
-						</a>
+						</div>
 					</div>
-				</section> -->
-			<section class="offer">
-				<a href="#" target="_blank" class="offer__item">
-					<div class="offer__image">
-						<picture><source srcset="img/home-page/offer/02.webp" type="image/webp"><img src="img/home-page/offer/02.jpg" alt="Image"></picture>
-					</div>
-					<div class="offer__header">
-						<h3 class="offer__title">Інветиційний ремонт</h3>
-						<div class="offer__subtitle">Дизайн інтер’єру</div>
-					</div>
-				</a>
-				<a href="#" target="_blank" class="offer__item">
-					<div class="offer__image">
-						<picture><source srcset="img/home-page/offer/01.webp" type="image/webp"><img src="img/home-page/offer/01.jpg" alt="Image"></picture>
-					</div>
-					<div class="offer__header">
-						<h3 class="offer__title">Експрес проект</h3>
-						<div class="offer__subtitle">Квартири під ключ</div>
-					</div>
-				</a>
-				<a href="#" target="_blank" class="offer__item">
-					<div class="offer__image">
-						<picture><source srcset="img/home-page/offer/03.webp" type="image/webp"><img src="img/home-page/offer/03.jpg" alt="Image"></picture>
-					</div>
-					<div class="offer__header">
-						<h3 class="offer__title">Шоурум меблів</h3>
-						<div class="offer__subtitle">Магазин меблів</div>
-					</div>
-				</a>
-			</section>
-			<section class="statistic">
-				<div class="statistic__item">
-					<h3 class="statistic__title">200+</h3>
-					<div class="statistic__subtitle">Створено проектів</div>
-				</div>
-				<div class="statistic__item">
-					<h3 class="statistic__title">Власна колекція меблів</h3>
-				</div>
-				<div class="statistic__item">
-					<h3 class="statistic__title">100+</h3>
-					<div class="statistic__subtitle">Реалізовано об’єктів</div>
 				</div>
 			</section>
 			<section class="contacts">
