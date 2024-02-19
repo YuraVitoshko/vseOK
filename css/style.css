@@ -130,10 +130,10 @@ h6 {
 ::-webkit-scrollbar {
   width: 10px;
   height: 5px;
-  background-color: #5c5c5c
+  background-color: #c2c2c2
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #fff
+  background-color: #898989
 }
 .wrapper {
   min-height: 100%;
@@ -220,7 +220,8 @@ h6 {
 .options__text {
   display: grid;
   gap: .625rem;
-  color: #898989
+  color: #898989;
+  font-size: .875rem
 }
 .options__text::before {
   justify-self: center
@@ -1620,6 +1621,15 @@ h6 {
   -moz-column-gap: 3rem;
   column-gap: 3rem
 }
+.actions-header__phone {
+  display: none
+}
+.actions-header__tel {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.25
+}
 .langs {
   width: 15rem
 }
@@ -1631,7 +1641,7 @@ h6 {
   column-gap: 1.875rem
 }
 .social-header__link {
-  color: #fff;
+  color: #c2c2c2;
   transition: color .3s
 }
 .icon-menu {
@@ -1661,6 +1671,9 @@ h6 {
   background-color: #2e2e2e;
   gap: .625rem
 }
+.select__value > * {
+  flex: 1 1 auto
+}
 .select__value:after {
   content: "";
   margin-right: .75rem;
@@ -1668,7 +1681,7 @@ h6 {
   width: .6875rem;
   height: .5rem;
   transition: all .3s ease 0s;
-  background: url(../../../img/icons/arrow-small.svg) 0 0 no-repeat
+  background: url(../img/icons/arrow-small.svg) 0 0 no-repeat
 }
 ._select-open .select__value:after {
   -webkit-transform: rotate(-180deg);
@@ -1711,19 +1724,13 @@ h6 {
 }
 .select__option {
   font-size: .75rem;
-  line-height: 1.3;
+  line-height: 1.5;
   min-width: 100%;
   text-align: left;
   cursor: pointer;
   color: inherit;
   transition: all .3s;
   padding-left: .75rem
-}
-.select__option:nth-child(1) {
-  padding-top: .75rem
-}
-.select__option:nth-last-child(1) {
-  padding-bottom: .75rem
 }
 .select__row {
   display: inline-flex;
@@ -1879,7 +1886,7 @@ h6 {
   gap: 1.875rem
 }
 .social-footer__link {
-  color: #fff;
+  color: #c2c2c2;
   transition: color .3s
 }
 .hero {
@@ -2015,7 +2022,7 @@ h6 {
   width: 200%;
   height: 200%;
   background-color: #0a0a0a;
-  opacity: .75;
+  opacity: .7;
   transition: opacity .3s
 }
 .offer__item:active::before {
@@ -2153,7 +2160,7 @@ textarea {
   color: #0a0a0a
 }
 .form-contacts__title:not(:last-child) {
-  margin-bottom: .75rem
+  margin-bottom: 1rem
 }
 .form-contacts__lines {
   display: grid;
@@ -2309,6 +2316,9 @@ textarea {
   background-color: #fff;
   transition: width .3s
 }
+.tabs-projects__box {
+  display: grid
+}
 .tabs-projects__controls {
   display: flex;
   align-items: center;
@@ -2330,6 +2340,17 @@ textarea {
   grid-template-columns: repeat(3,1fr);
   gap: .75rem;
   grid-auto-rows: 1fr
+}
+.tabs-projects__targets:not(:last-child) {
+  margin-bottom: 4rem
+}
+.tabs-projects__show-more {
+  justify-self: center;
+  color: #c2c2c2;
+  font-weight: 500;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transition: color .3s
 }
 .mixitup-control-active {
   color: #fff;
@@ -2409,10 +2430,10 @@ textarea {
     font-size: 3.75rem
   }
   .offer__title {
-    font-size: 3.125rem
+    font-size: 2rem
   }
   .statistic__title {
-    font-size: 3.75rem
+    font-size: 3.125rem
   }
   .contacts__title {
     font-size: 3.125rem
@@ -2482,6 +2503,9 @@ textarea {
   .actions-header {
     flex-direction: column-reverse;
     row-gap: 2.375rem
+  }
+  .actions-header__phone {
+    display: block
   }
   .icon-menu {
     display: inline-flex;
@@ -2649,9 +2673,6 @@ textarea {
   }
 }
 @media (max-width:29.99875em) {
-  .options__text {
-    font-size: .875rem
-  }
   .footer__map {
     height: 18.75rem
   }
@@ -2693,7 +2714,7 @@ textarea {
     font-size: 3rem
   }
   .offer__title {
-    font-size: 2rem
+    font-size: 1.5rem
   }
   .statistic__title {
     font-size: 2.5rem
@@ -2730,24 +2751,24 @@ textarea {
       font-size: calc(3rem + .75 * (100vw - 22.5rem)/ 74.5)
     }
   }
-  @supports (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
+  @supports (font-size:clamp(1.5rem ,1.3489932886rem + 0.6711409396vw ,2rem)) {
     .offer__title {
-      font-size: clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)
+      font-size: clamp(1.5rem ,1.3489932886rem + .6711409396vw ,2rem)
     }
   }
-  @supports not (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
+  @supports not (font-size:clamp(1.5rem ,1.3489932886rem + 0.6711409396vw ,2rem)) {
     .offer__title {
-      font-size: calc(2rem + 1.125 * (100vw - 22.5rem)/ 74.5)
+      font-size: calc(1.5rem + .5 * (100vw - 22.5rem)/ 74.5)
     }
   }
-  @supports (font-size:clamp(2.5rem ,2.1224832215rem + 1.677852349vw ,3.75rem)) {
+  @supports (font-size:clamp(2.5rem ,2.3112416107rem + 0.8389261745vw ,3.125rem)) {
     .statistic__title {
-      font-size: clamp(2.5rem ,2.1224832215rem + 1.677852349vw ,3.75rem)
+      font-size: clamp(2.5rem ,2.3112416107rem + .8389261745vw ,3.125rem)
     }
   }
-  @supports not (font-size:clamp(2.5rem ,2.1224832215rem + 1.677852349vw ,3.75rem)) {
+  @supports not (font-size:clamp(2.5rem ,2.3112416107rem + 0.8389261745vw ,3.125rem)) {
     .statistic__title {
-      font-size: calc(2.5rem + 1.25 * (100vw - 22.5rem)/ 74.5)
+      font-size: calc(2.5rem + .625 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
@@ -2797,7 +2818,7 @@ textarea {
     width: 100%
   }
   .social-header__link:hover {
-    color: #c2c2c2
+    color: #fff
   }
   .select__option:hover {
     background-color: #2e2e2e
@@ -2809,7 +2830,7 @@ textarea {
     width: 100%
   }
   .social-footer__link:hover {
-    color: #c2c2c2
+    color: #fff
   }
   .offer__item:hover::before {
     opacity: .25
@@ -2833,6 +2854,9 @@ textarea {
     width: 100%
   }
   .tabs-projects__btn:hover {
+    color: #fff
+  }
+  .tabs-projects__show-more:hover {
     color: #fff
   }
   .item-tabs-projects:hover .item-tabs-projects__image img {
