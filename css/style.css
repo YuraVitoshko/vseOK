@@ -2075,7 +2075,6 @@ h6 {
   font-weight: 500;
   line-height: 1.4;
   color: #c2c2c2;
-  text-transform: uppercase;
   text-align: center;
   transition: color .3s
 }
@@ -2151,7 +2150,8 @@ textarea {
   padding: 3rem;
   background-color: #f7f7f7;
   display: grid;
-  gap: 1.5rem
+  gap: 1.5rem;
+  min-width: 30.625rem
 }
 .form-contacts__title {
   font-size: 1rem;
@@ -2590,13 +2590,14 @@ textarea {
   .statistic__item:nth-child(1) {
     border-right: none
   }
+  .statistic__item:nth-child(1) .statistic__subtitle {
+    margin-bottom: 1.5rem
+  }
   .statistic__item:nth-child(3) {
     border-left: none
   }
-  .statistic__item:nth-child(1),
-  .statistic__item:nth-child(2) {
-    display: grid;
-    gap: 3rem
+  .statistic__item:nth-child(2) .statistic__title {
+    margin-bottom: 1.5rem
   }
   .statistic__item:nth-child(1)::after,
   .statistic__item:nth-child(2)::after {
@@ -2672,6 +2673,12 @@ textarea {
     max-height: 22.5rem
   }
 }
+@media (max-width:37.5em) {
+  .form-contacts {
+    min-width: 100%;
+    padding: 3rem 1rem
+  }
+}
 @media (max-width:29.99875em) {
   .footer__map {
     height: 18.75rem
@@ -2681,10 +2688,6 @@ textarea {
   }
   .contacts__form {
     max-width: 20.5rem
-  }
-  .form-contacts {
-    padding: 3rem 1rem;
-    min-width: 100%
   }
   .tabs-projects__controls {
     -webkit-column-gap: 1.5rem;
