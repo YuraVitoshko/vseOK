@@ -5517,6 +5517,9 @@
         if (document.querySelector(".tabs-projects__targets")) {
             mixitup(".tabs-projects__targets");
         }
+        if (document.querySelector(".tabs-projects-repair__targets")) {
+            mixitup(".tabs-projects-repair__targets");
+        }
         window["FLS"] = false;
         isWebp();
         menuInit();

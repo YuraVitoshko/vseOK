@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240219161837">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240220212105">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
 				<div class="header__menu menu">
 					<nav class="menu__body">
 						<ul class="menu__list">
-							<li class="menu__item"><a href="#" class="menu__link">Ремонт</a></li>
+							<li class="menu__item"><a href="repair.html" class="menu__link">Ремонт</a></li>
 							<li class="menu__item"><a href="projects.html" class="menu__link">Проекти</a></li>
 							<li class="menu__item"><a href="#" class="menu__link">Шоурум</a></li>
 							<li class="menu__item"><a data-goto=".footer" data-goto-speed="800" href="#" class="menu__link">Контакти</a></li>
@@ -185,20 +185,90 @@
 			</div>
 		</header>
 		<main class="page">
-			<section class="hero">
-				<div class="hero__overlay"></div>
-				<div class="hero__bg">
-					<picture><source srcset="img/home-page/hero.webp" type="image/webp"><img class="hero__fixed-img" src="img/home-page/hero.jpg" alt="Image"></picture>
+			<section class="repair-hero">
+				<div class="repair-hero__bg">
+					<picture><source srcset="img/repair/hero.webp" type="image/webp"><img src="img/repair/hero.jpg" alt="Image"></picture>
 				</div>
-				<div class="hero__container">
-					<div data-watch data-watch-once data-prlx-parent class="hero__content">
-						<h2 data-prlx class="hero__title hero__title--en">Vse bude ok!</h2>
-						<h2 data-prlx class="hero__title hero__title--ua">Все просто.</h2>
-						<div data-prlx class="hero__text">We design every project as a one-off YODEZEEN is a multi-award-winning architectural and design studio operating.</div>
+				<div class="repair-hero__container">
+					<div class="repair-hero__content">
+						<h2 data-watch data-watch-once class="repair-hero__title">$699 за проект</h2>
 					</div>
 				</div>
 			</section>
-
+			<section class="repair-projects">
+				<div class="repair-projects__container">
+					<div class="repair-projects__breadcrumbs breadcrumbs">
+						<div class="breadcrumbs__inner">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__item">
+									<a href="home.html" class="breadcrumbs__link">Головна</a>
+								</li>
+								<li class="breadcrumbs__item">
+									<span>Проекти</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="repair-projects__tabs tabs-projects-repair">
+						<div class="tabs-projects-repair__box">
+							<div class="tabs-projects-repair__controls">
+								<button type="button" class="tabs-projects-repair__btn" data-filter="all">Усі</button>
+								<button type="button" class="tabs-projects-repair__btn" data-filter=".classic">Класика</button>
+								<button type="button" class="tabs-projects-repair__btn" data-filter=".loft">Лофт</button>
+								<button type="button" class="tabs-projects-repair__btn" data-filter=".comfort">Комфорт</button>
+							</div>
+							<div id="repair-projects-container" class="tabs-projects-repair__targets">
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix classic">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/01.webp" type="image/webp"><img src="img/projects/01.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Славутич”</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair item-tabs-projects-repair--grey mix">
+									<div class="item-tabs-projects-repair__title">Про ремонт</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix classic">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/02.webp" type="image/webp"><img src="img/projects/02.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Метрополіс”</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair item-tabs-projects-repair--grey mix">
+									<div class="item-tabs-projects-repair__title">Про техніку</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix comfort">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/03.webp" type="image/webp"><img src="img/projects/03.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Престиж Холл”</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix loft">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/04.webp" type="image/webp"><img src="img/projects/04.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Soho”</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix loft">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/05.webp" type="image/webp"><img src="img/projects/05.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Престиж Холл”</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair item-tabs-projects-repair--grey mix">
+									<div class="item-tabs-projects-repair__title">Про меблі</div>
+								</a>
+								<a href="#" class="tabs-projects-repair__item item-tabs-projects-repair mix comfort">
+									<div class="item-tabs-projects-repair__image">
+										<picture><source srcset="img/projects/06.webp" type="image/webp"><img src="img/projects/06.jpg" alt="Image"></picture>
+									</div>
+									<div class="item-tabs-projects-repair__label">ЖК “Комфорт Таун”</div>
+								</a>
+							</div>
+							<button class="tabs-projects-repair__show-more" id="show-more-btn">Показати ще</button>
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="contacts">
 				<div class="contacts__container">
 					<div class="contacts__header">
@@ -282,7 +352,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240219161837"></script>
+	<script src="js/app.min.js?_v=20240220212105"></script>
 </body>
 
 </html>
