@@ -8477,7 +8477,7 @@
             });
         }
         function initSliders() {
-            if (document.querySelector(".residential-complex-other-projects__slider")) new swiper_core_Swiper(".residential-complex-other-projects__slider", {
+            if (document.querySelector(".other-projects__slider")) new swiper_core_Swiper(".other-projects__slider", {
                 modules: [ Navigation ],
                 observer: true,
                 observeParents: true,
