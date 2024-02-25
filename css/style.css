@@ -2981,7 +2981,7 @@ textarea {
   padding-bottom: 5rem
 }
 .residential-complex-description__breadcrumbs:not(:last-child) {
-  margin-bottom: 3rem
+  margin-bottom: 4rem
 }
 .residential-complex-description__gallery {
   opacity: 0;
@@ -2993,9 +2993,6 @@ textarea {
   opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0)
-}
-.residential-complex-description__gallery:not(:last-child) {
-  margin-bottom: 4rem
 }
 .gallery-residential-complex {
   display: grid;
@@ -3149,7 +3146,7 @@ textarea {
   padding-bottom: 5rem
 }
 .design-project__breadcrumbs:not(:last-child) {
-  margin-bottom: 3rem
+  margin-bottom: 4rem
 }
 .design-project__gallery {
   opacity: 0;
@@ -4106,6 +4103,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .residential-complex-hero__title {
     font-size: 3.75rem
   }
+  .residential-complex-description__gallery:not(:last-child) {
+    margin-bottom: 6rem
+  }
   .content-residential-complex-description__column:nth-child(1) {
     padding-right: 4rem
   }
@@ -4117,6 +4117,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .design-hero__title {
     font-size: 3.75rem
+  }
+  .design-project__gallery:not(:last-child) {
+    margin-bottom: 5rem
   }
   .content-design-project__column:nth-child(1) {
     padding-right: 4rem
@@ -4416,7 +4419,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: .75rem
   }
   .tabs-projects__targets {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    gap: .5rem
   }
   .item-tabs-projects {
     max-height: 22.5rem
@@ -4439,7 +4443,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: .75rem
   }
   .tabs-projects-repair__targets {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    gap: .5rem
   }
   .item-tabs-projects-repair {
     max-height: 22.5rem
@@ -4451,16 +4456,23 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-bottom: 7.5rem
   }
   .residential-complex-description {
-    padding-bottom: 3.75rem
+    padding-bottom: 4rem
+  }
+  .residential-complex-description__container {
+    padding-left: .5rem;
+    padding-right: .5rem
   }
   .gallery-residential-complex {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    gap: .5rem
   }
   .gallery-residential-complex__image {
     max-height: 22.375rem
   }
   .content-residential-complex-description {
-    grid-template-columns: auto
+    grid-template-columns: auto;
+    padding-left: .75rem;
+    padding-right: .75rem
   }
   .content-residential-complex-description__column:nth-child(1) {
     padding-right: 2rem
@@ -4493,11 +4505,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .design-project {
     padding-bottom: 3.75rem
   }
+  .design-project__container {
+    padding-left: .5rem;
+    padding-right: .5rem
+  }
   .content-design-project {
-    grid-template-columns: auto
+    grid-template-columns: auto;
+    padding-left: .75rem;
+    padding-right: .75rem
   }
   .content-design-project:not(:last-child) {
-    margin-bottom: 4rem
+    margin-bottom: 5rem
   }
   .content-design-project__column:nth-child(1) {
     padding-right: 1.5rem
@@ -4510,7 +4528,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     transform: translate(0,5%);
     transition: all .8s ease .1s;
     border-right: none;
-    padding-bottom: 1.5rem;
+    padding-bottom: 3rem;
     border-bottom: .125rem solid #2e2e2e;
     padding-right: 0
   }
@@ -4518,11 +4536,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-transform: translate(0,5%);
     transform: translate(0,5%);
     transition: all .8s ease .1s;
-    padding-top: 1.5rem;
+    padding-top: 3rem;
     padding-left: 0
   }
   .gallery-design-project {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    gap: .5rem
   }
   .gallery-design-project__image {
     max-height: 22.375rem
@@ -4647,7 +4666,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: .875rem
   }
   .residential-complex-description {
-    padding-top: 4rem
+    padding-top: 5rem
+  }
+  .residential-complex-description__container {
+    padding-left: .25rem;
+    padding-right: .25rem
   }
   .gallery-residential-complex {
     gap: .25rem
@@ -4659,7 +4682,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     gap: 1.5rem
   }
   .design-project {
-    padding-top: 4rem
+    padding-top: 5rem
+  }
+  .design-project__container {
+    padding-left: .25rem;
+    padding-right: .25rem
   }
   .gallery-design-project {
     gap: .25rem
@@ -4679,7 +4706,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 @media (max-width:22.5em) {
   .other-projects {
-    padding-top: 3.75rem
+    padding-top: 4rem
   }
   .other-projects__title {
     font-size: 2rem
@@ -4710,11 +4737,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .residential-complex-hero__title {
     font-size: 1.9375rem
   }
+  .residential-complex-description__gallery:not(:last-child) {
+    margin-bottom: 4rem
+  }
   .content-residential-complex-description__title {
     font-size: 2rem
   }
   .design-hero__title {
     font-size: 2rem
+  }
+  .design-project__gallery:not(:last-child) {
+    margin-bottom: 4rem
   }
   .content-design-project__title {
     font-size: 2.5rem
@@ -4730,14 +4763,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 @media (min-width:22.5em) and (max-width:97em) {
-  @supports (padding-top:clamp(3.75rem ,3.3724832215rem + 1.677852349vw ,5rem)) {
+  @supports (padding-top:clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)) {
     .other-projects {
-      padding-top: clamp(3.75rem ,3.3724832215rem + 1.677852349vw ,5rem)
+      padding-top: clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)
     }
   }
-  @supports not (padding-top:clamp(3.75rem ,3.3724832215rem + 1.677852349vw ,5rem)) {
+  @supports not (padding-top:clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)) {
     .other-projects {
-      padding-top: calc(3.75rem + 1.25 * (100vw - 22.5rem)/ 74.5)
+      padding-top: calc(4rem + 1 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
@@ -4834,6 +4867,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
       font-size: calc(1.9375rem + 1.8125 * (100vw - 22.5rem)/ 74.5)
     }
   }
+  @supports (margin-bottom:clamp(4rem ,3.3959731544rem + 2.6845637584vw ,6rem)) {
+    .residential-complex-description__gallery:not(:last-child) {
+      margin-bottom: clamp(4rem ,3.3959731544rem + 2.6845637584vw ,6rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(4rem ,3.3959731544rem + 2.6845637584vw ,6rem)) {
+    .residential-complex-description__gallery:not(:last-child) {
+      margin-bottom: calc(4rem + 2 * (100vw - 22.5rem)/ 74.5)
+    }
+  }
   @supports (font-size:clamp(2rem ,1.8489932886rem + 0.6711409396vw ,2.5rem)) {
     .content-residential-complex-description__title {
       font-size: clamp(2rem ,1.8489932886rem + .6711409396vw ,2.5rem)
@@ -4852,6 +4895,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   @supports not (font-size:clamp(2rem ,1.4714765101rem + 2.3489932886vw ,3.75rem)) {
     .design-hero__title {
       font-size: calc(2rem + 1.75 * (100vw - 22.5rem)/ 74.5)
+    }
+  }
+  @supports (margin-bottom:clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)) {
+    .design-project__gallery:not(:last-child) {
+      margin-bottom: clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(4rem ,3.6979865772rem + 1.3422818792vw ,5rem)) {
+    .design-project__gallery:not(:last-child) {
+      margin-bottom: calc(4rem + 1 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports (font-size:clamp(2.5rem ,2.2734899329rem + 1.0067114094vw ,3.25rem)) {
