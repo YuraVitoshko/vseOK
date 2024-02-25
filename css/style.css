@@ -4466,8 +4466,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 2rem
   }
   .content-residential-complex-description__column:nth-child(1) {
-    -webkit-transform: translate(0,15%);
-    transform: translate(0,15%);
+    -webkit-transform: translate(0,5%);
+    transform: translate(0,5%);
     transition: all .8s ease .1s;
     padding-right: 0;
     padding-bottom: 3rem;
@@ -4478,8 +4478,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-left: 2rem
   }
   .content-residential-complex-description__column:nth-child(2) {
-    -webkit-transform: translate(0,15%);
-    transform: translate(0,15%);
+    -webkit-transform: translate(0,5%);
+    transform: translate(0,5%);
     transition: all .8s ease .1s;
     padding-top: 3rem;
     padding-left: 0
@@ -4506,8 +4506,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-left: 1.5rem
   }
   .content-design-project__column:nth-child(1) {
-    -webkit-transform: translate(0,15%);
-    transform: translate(0,15%);
+    -webkit-transform: translate(0,5%);
+    transform: translate(0,5%);
     transition: all .8s ease .1s;
     border-right: none;
     padding-bottom: 1.5rem;
@@ -4515,8 +4515,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 0
   }
   .content-design-project__column:nth-child(2) {
-    -webkit-transform: translate(0,15%);
-    transform: translate(0,15%);
+    -webkit-transform: translate(0,5%);
+    transform: translate(0,5%);
     transition: all .8s ease .1s;
     padding-top: 1.5rem;
     padding-left: 0
