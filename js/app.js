@@ -10604,6 +10604,38 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (callMe.classList.contains("_active")) callMeIcon.querySelector("img").setAttribute("src", "img/icons/close.svg"); else callMeIcon.querySelector("img").setAttribute("src", "img/icons/call-me.svg");
             }));
         }));
+        document.addEventListener("DOMContentLoaded", (function() {
+            const btnUp = document.querySelector(".btn-up");
+            btnUp.addEventListener("click", (function() {
+                scrollToTop(800);
+            }));
+            window.onscroll = function() {
+                if (document.body.scrollTop > 1e3 || document.documentElement.scrollTop > 1e3) {
+                    btnUp.style.opacity = "1";
+                    btnUp.style.pointerEvents = "auto";
+                } else {
+                    btnUp.style.opacity = "0";
+                    btnUp.style.pointerEvents = "none";
+                }
+            };
+            function scrollToTop(duration) {
+                const startingY = window.pageYOffset;
+                const startTime = Date.now();
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+                function animateScroll() {
+                    const time = Date.now() - startTime;
+                    const newY = easeInOutQuad(time, startingY, -startingY, duration);
+                    window.scrollTo(0, newY);
+                    if (time < duration) requestAnimationFrame(animateScroll);
+                }
+                requestAnimationFrame(animateScroll);
+            }
+        }));
         window["FLS"] = false;
         isWebp();
         menuInit();
