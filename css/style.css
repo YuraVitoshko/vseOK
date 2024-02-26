@@ -1719,6 +1719,9 @@ h6 {
   width: 3rem;
   height: 3rem
 }
+.menu-open .call-me {
+  display: none
+}
 .call-me._active .call-me__box {
   opacity: 1;
   -webkit-transform: translateY(-50%);
@@ -1956,6 +1959,9 @@ h6 {
   height: .796875rem;
   background: url(../img/icons/btn-up.svg) 0 0/contain no-repeat
 }
+.menu-open .btn-up {
+  display: none
+}
 .header {
   position: absolute;
   top: 0;
@@ -2086,6 +2092,17 @@ h6 {
   transition: all .3s ease 0s;
   background: url(../img/icons/planet.svg) 0 0 no-repeat
 }
+.select__value::after {
+  content: "";
+  margin-right: .625rem;
+  flex: 0 0 .5rem;
+  width: .5rem;
+  height: .3125rem;
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  background: url(../img/icons/arrow-down.svg) 0 0 no-repeat
+}
 .select__value._select-pseudo-label::before {
   content: attr(data-pseudo-label);
   opacity: .5
@@ -2138,6 +2155,10 @@ h6 {
   top: auto;
   bottom: calc(100% - .0625rem);
   border-bottom: 0
+}
+.select._select-open .select__value::after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg)
 }
 ._select-tag {
   cursor: pointer
@@ -4315,8 +4336,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     min-height: 4.5rem
   }
   .menu__body {
-    position: relative;
-    z-index: 100;
     display: flex;
     flex-direction: column;
     gap: 5rem;
