@@ -1711,23 +1711,40 @@ h6 {
   color: #fff
 }
 .call-me {
+  cursor: pointer;
   position: fixed;
   z-index: 150;
-  border-radius: 50%;
   bottom: 7.5rem;
   right: 1.875rem;
-  max-width: 3rem;
-  max-height: 3rem;
-  -webkit-animation: call-me-rotate 2s infinite linear;
-  animation: call-me-rotate 2s infinite linear
+  width: 3rem;
+  height: 3rem
 }
-.call-me img {
-  position: relative;
+.call-me._active .call-me__box {
+  opacity: 1;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%)
+}
+.call-me._active .call-me__icon::before {
+  display: none
+}
+.call-me__icon {
+  position: absolute;
   z-index: 150;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%
+}
+.call-me__icon img {
+  position: absolute;
+  z-index: 150;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%
 }
-.call-me::before {
+.call-me__icon::before {
   content: "";
   position: absolute;
   z-index: 10;
@@ -1776,32 +1793,135 @@ h6 {
     opacity: .5
   }
 }
-@-webkit-keyframes call-me-rotate {
+.call-me__box {
+  position: absolute;
+  bottom: 120%;
+  left: 0;
+  width: 100%;
+  height: 7.25rem;
+  display: grid;
+  gap: 2.5rem;
+  opacity: 0;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  transition: all .5s
+}
+.call-me__telegram {
+  position: relative;
+  z-index: 150;
+  width: 3rem;
+  height: 3rem
+}
+.call-me__telegram img {
+  width: 100%;
+  height: 100%
+}
+.call-me__telegram::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #0a0a0a;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-animation: telegram-scale 2s infinite linear;
+  animation: telegram-scale 2s infinite linear
+}
+@-webkit-keyframes telegram-scale {
   0% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
   }
   50% {
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg)
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    opacity: 0
   }
   100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
   }
 }
-@keyframes call-me-rotate {
+@keyframes telegram-scale {
   0% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
   }
   50% {
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg)
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    opacity: 0
   }
   100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
+  }
+}
+.call-me__whatsapp {
+  position: relative;
+  z-index: 150;
+  width: 3rem;
+  height: 3rem
+}
+.call-me__whatsapp img {
+  width: 100%;
+  height: 100%
+}
+.call-me__whatsapp::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #0a0a0a;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-animation: whatsapp-scale 2s infinite linear;
+  animation: whatsapp-scale 2s infinite linear
+}
+@-webkit-keyframes whatsapp-scale {
+  0% {
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
+  }
+  50% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    opacity: 0
+  }
+  100% {
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
+  }
+}
+@keyframes whatsapp-scale {
+  0% {
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
+  }
+  50% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    opacity: 0
+  }
+  100% {
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    opacity: .5
   }
 }
 .header {
@@ -2291,7 +2411,8 @@ h6 {
   line-height: 1.1;
   font-weight: 500;
   text-align: center;
-  text-shadow: .0625rem .1875rem .3125rem rgba(0,0,0,.35),.0625rem .25rem .625rem rgba(0,0,0,.16)
+  text-shadow: 1px 3px 5px rgba(0,0,0,.35),1px 4px 10px rgba(0,0,0,.16);
+  transition: all .3s
 }
 .offer__title:not(:last-child) {
   margin-bottom: .5rem
@@ -2301,7 +2422,8 @@ h6 {
   color: #fff;
   text-align: center;
   transition: color .3s;
-  text-shadow: .0625rem .1875rem .3125rem rgba(0,0,0,.35),.0625rem .25rem .625rem rgba(0,0,0,.16)
+  text-shadow: 1px 3px 5px rgba(0,0,0,.35),1px 4px 10px rgba(0,0,0,.16);
+  transition: all .3s
 }
 .statistic {
   background-color: #0a0a0a;
@@ -3166,6 +3288,14 @@ textarea {
 .content-design-project:not(:last-child) {
   margin-bottom: 6rem
 }
+.content-design-project__title {
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.2
+}
+.content-design-project__title:not(:last-child) {
+  margin-bottom: 3rem
+}
 .content-design-project__column {
   opacity: 0
 }
@@ -3189,14 +3319,6 @@ textarea {
   opacity: 1;
   -webkit-transform: translate(0,0);
   transform: translate(0,0)
-}
-.content-design-project__title {
-  color: #fff;
-  font-weight: 500;
-  line-height: 1.2
-}
-.content-design-project__title:not(:last-child) {
-  margin-bottom: 1.5rem
 }
 .content-design-project__text {
   line-height: 1.4;
@@ -4121,14 +4243,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .design-project__gallery:not(:last-child) {
     margin-bottom: 5rem
   }
+  .content-design-project__title {
+    font-size: 3.25rem
+  }
   .content-design-project__column:nth-child(1) {
     padding-right: 4rem
   }
   .content-design-project__column:nth-child(2) {
     padding-left: 4rem
-  }
-  .content-design-project__title {
-    font-size: 3.25rem
   }
   .showroom-hero__title {
     font-size: 3.75rem
@@ -4516,6 +4638,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .content-design-project:not(:last-child) {
     margin-bottom: 5rem
+  }
+  .content-design-project__title {
+    padding-left: .75rem
   }
   .content-design-project__column:nth-child(1) {
     padding-right: 1.5rem

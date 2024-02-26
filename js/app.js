@@ -10596,6 +10596,14 @@ PERFORMANCE OF THIS SOFTWARE.
         if (document.querySelector(".tabs-projects-repair__targets")) {
             mixitup(".tabs-projects-repair__targets");
         }
+        document.addEventListener("DOMContentLoaded", (function() {
+            const callMeIcon = document.querySelector(".call-me__icon");
+            callMeIcon.addEventListener("click", (function() {
+                const callMe = document.querySelector(".call-me");
+                callMe.classList.toggle("_active");
+                if (callMe.classList.contains("_active")) callMeIcon.querySelector("img").setAttribute("src", "img/icons/close.svg"); else callMeIcon.querySelector("img").setAttribute("src", "img/icons/call-me.svg");
+            }));
+        }));
         window["FLS"] = false;
         isWebp();
         menuInit();
