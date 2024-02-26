@@ -1924,6 +1924,35 @@ h6 {
     opacity: .5
   }
 }
+.btn-up {
+  cursor: pointer;
+  position: fixed;
+  z-index: 150;
+  bottom: 3.125rem;
+  right: 2.1875rem;
+  width: 2.25rem;
+  height: 2.25rem
+}
+.btn-up::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2e2e2e;
+  border: .0625rem solid #fff;
+  transition: background-color .3s
+}
+.btn-up::after {
+  content: "";
+  position: absolute;
+  top: .6875rem;
+  left: .46875rem;
+  width: 1.40625rem;
+  height: .796875rem;
+  background: url(../img/icons/btn-up.svg) 0 0/contain no-repeat
+}
 .header {
   position: absolute;
   top: 0;
@@ -4501,7 +4530,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.5rem
   }
   .hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .hero__content {
     max-width: 22.5rem
@@ -4527,7 +4556,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     gap: 3rem
   }
   .projects-hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .projects {
     padding-bottom: 8rem
@@ -4551,7 +4580,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     max-height: 22.5rem
   }
   .repair-hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .repair-projects {
     padding-bottom: 8rem
@@ -4575,7 +4604,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     max-height: 22.5rem
   }
   .residential-complex-hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .residential-complex-description {
     padding-bottom: 4rem
@@ -4622,7 +4651,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     text-align: left
   }
   .design-hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .design-project {
     padding-bottom: 3.75rem
@@ -4672,7 +4701,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     max-height: 22.375rem
   }
   .showroom-hero__container {
-    padding-bottom: 7.5rem
+    padding-bottom: 20rem
   }
   .showroom-hero__content {
     max-width: 31.25rem
@@ -5147,6 +5176,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .other-projects__link:hover {
     border: .0625rem solid #fff;
     color: #fff
+  }
+  .btn-up:hover::before {
+    background-color: #0a0a0a
   }
   .menu__link:hover::before {
     width: 100%
