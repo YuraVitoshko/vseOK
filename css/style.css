@@ -2094,12 +2094,12 @@ body::after {
   height: 100%
 }
 .popup-card__box {
-  display: grid;
-  grid-template-columns: .7fr 1.3fr;
+  display: flex;
   gap: 1.5rem
 }
 .popup-card__column-left {
-  background: #2e2e2e;
+  flex: 0 0 18.75rem;
+  background-color: #2e2e2e;
   display: grid
 }
 .popup-card__title {
@@ -2110,6 +2110,9 @@ body::after {
   line-height: 1.25;
   padding-left: .625rem;
   padding-right: .625rem
+}
+.popup-card__column-right {
+  flex: 1 1 auto
 }
 .popup-card__text {
   display: grid;
@@ -4703,10 +4706,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 1rem
   }
   .popup-card__box {
-    grid-template-columns: auto
+    flex-direction: column
   }
   .popup-card__column-left {
-    min-height: 18.75rem
+    max-height: 12.5rem
   }
   .header {
     background: #0a0a0a
@@ -4969,6 +4972,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: .25rem .5rem;
     top: .25rem;
     left: .25rem
+  }
+  .popup-card__column-left {
+    max-height: 7.5rem
   }
   .footer__map {
     height: 18.75rem
