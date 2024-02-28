@@ -4709,7 +4709,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     flex-direction: column
   }
   .popup-card__column-left {
-    max-height: 12.5rem
+    max-height: 12.5rem;
+    padding-top: 5.625rem;
+    padding-bottom: 5.625rem
   }
   .header {
     background: #0a0a0a
@@ -4974,7 +4976,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     left: .25rem
   }
   .popup-card__column-left {
-    max-height: 7.5rem
+    max-height: 7.5rem;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem
   }
   .footer__map {
     height: 18.75rem
