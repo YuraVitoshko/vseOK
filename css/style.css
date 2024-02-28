@@ -229,6 +229,71 @@ h6 {
 .options__input:checked + .options__label .options__text {
   color: #0c5533
 }
+body::after {
+  content: "";
+  background-color: rgba(0,0,0,.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .8s ease 0s;
+  pointer-events: none;
+  z-index: 149
+}
+.popup-show body::after {
+  opacity: 1
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility .8s ease 0s;
+  visibility: hidden;
+  pointer-events: none
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto
+}
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1)
+}
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.popup__content {
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  background-color: #eee;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px
+}
+.lock .popup__content {
+  visibility: visible
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -1961,6 +2026,107 @@ h6 {
 }
 .menu-open .btn-up {
   display: none
+}
+body::after {
+  content: "";
+  background-color: rgba(0,0,0,.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .8s ease 0s;
+  pointer-events: none;
+  z-index: 160
+}
+.popup-show body::after {
+  opacity: 1
+}
+.popup-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1.5rem;
+  transition: visibility .8s ease 0s;
+  visibility: hidden;
+  pointer-events: none
+}
+.popup-card__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.popup-card__content {
+  display: grid;
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  background-color: #0a0a0a;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 62.875rem
+}
+.lock .popup-card__content {
+  visibility: visible
+}
+.popup-card__close {
+  justify-self: end;
+  max-width: 2.5rem;
+  max-height: 2.5rem
+}
+.popup-card__close:not(:last-child) {
+  margin-bottom: 1rem
+}
+.popup-card__close img {
+  width: 100%;
+  height: 100%
+}
+.popup-card__box {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.5rem
+}
+.popup-card__column-left {
+  background: #2e2e2e;
+  display: grid
+}
+.popup-card__title {
+  justify-self: center;
+  align-self: center;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.25
+}
+.popup-card__text {
+  display: grid;
+  gap: .625rem;
+  color: #c2c2c2;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5
+}
+.popup_show {
+  z-index: 161;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto
+}
+.popup_show .popup-card__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1)
 }
 .header {
   position: absolute;
@@ -4249,6 +4415,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .other-projects__title {
     font-size: 3.125rem
   }
+  .popup-card__title {
+    font-size: 2rem
+  }
   .menu__list {
     -webkit-column-gap: 3rem;
     -moz-column-gap: 3rem;
@@ -4523,6 +4692,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .other-projects__image {
     max-height: 22.5rem
+  }
+  .popup-card {
+    padding: 1rem
+  }
+  .popup-card__content {
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+  .popup-card__box {
+    grid-template-columns: auto
+  }
+  .popup-card__column-left {
+    min-height: 18.75rem
   }
   .header {
     background: #0a0a0a
@@ -4889,6 +5071,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .other-projects__title {
     font-size: 2rem
   }
+  .popup-card__title {
+    font-size: 1.125rem
+  }
   .menu__list {
     -webkit-column-gap: 1.875rem;
     -moz-column-gap: 1.875rem;
@@ -4959,6 +5144,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   @supports not (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
     .other-projects__title {
       font-size: calc(2rem + 1.125 * (100vw - 22.5rem)/ 74.5)
+    }
+  }
+  @supports (font-size:clamp(1.125rem ,0.860738255rem + 1.1744966443vw ,2rem)) {
+    .popup-card__title {
+      font-size: clamp(1.125rem ,.860738255rem + 1.1744966443vw ,2rem)
+    }
+  }
+  @supports not (font-size:clamp(1.125rem ,0.860738255rem + 1.1744966443vw ,2rem)) {
+    .popup-card__title {
+      font-size: calc(1.125rem + .875 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports ((-moz-column-gap:clamp(1.875rem ,1.5352348993rem + 1.5100671141vw ,3rem)) or (column-gap:clamp(1.875rem ,1.5352348993rem + 1.5100671141vw ,3rem))) {
