@@ -2095,7 +2095,7 @@ body::after {
 }
 .popup-card__box {
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
+  grid-template-columns: .7fr 1.3fr;
   gap: 1.5rem
 }
 .popup-card__column-left {
@@ -2107,7 +2107,9 @@ body::after {
   align-self: center;
   color: #fff;
   font-weight: 500;
-  line-height: 1.25
+  line-height: 1.25;
+  padding-left: .625rem;
+  padding-right: .625rem
 }
 .popup-card__text {
   display: grid;
