@@ -2094,11 +2094,11 @@ body::after {
   height: 100%
 }
 .popup-card__box {
-  display: flex;
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
   gap: 1.5rem
 }
 .popup-card__column-left {
-  flex: 0 0 18.75rem;
   background-color: #2e2e2e;
   display: grid
 }
@@ -2110,9 +2110,6 @@ body::after {
   line-height: 1.25;
   padding-left: .625rem;
   padding-right: .625rem
-}
-.popup-card__column-right {
-  flex: 1 1 auto
 }
 .popup-card__text {
   display: grid;
@@ -4706,10 +4703,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 1rem
   }
   .popup-card__box {
-    flex-direction: column
+    grid-template-columns: auto
   }
   .popup-card__column-left {
-    max-height: 12.5rem;
     padding-top: 5.625rem;
     padding-bottom: 5.625rem
   }
@@ -4976,7 +4972,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     left: .25rem
   }
   .popup-card__column-left {
-    max-height: 7.5rem;
     padding-top: 3.125rem;
     padding-bottom: 3.125rem
   }
