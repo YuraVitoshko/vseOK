@@ -1795,9 +1795,6 @@ body::after {
 .call-me._active .call-me__icon::before {
   display: none
 }
-.lock .call-me {
-  right: 2.5rem
-}
 .call-me__icon {
   position: absolute;
   z-index: 50;
@@ -2029,9 +2026,6 @@ body::after {
 }
 .menu-open .btn-up {
   display: none
-}
-.lock .btn-up {
-  right: 2.8125rem
 }
 body::after {
   content: "";
@@ -4532,6 +4526,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 .lg-outer.lg-animate-thumb .lg-thumb {
   transition-timing-function: cubic-bezier(.215,.61,.355,1)
+}
+@media (min-width:47.99875em) {
+  .lock .call-me {
+    right: 2.5rem
+  }
+  .lock .btn-up {
+    right: 2.8125rem
+  }
 }
 @media (min-width:768px) {
   .lg-outer .lg-thumb {
