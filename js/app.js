@@ -10882,20 +10882,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 requestAnimationFrame(animateScroll);
             }
         }));
-        const showroomLabels = document.querySelectorAll(".showroom-projects-label");
-        function toggleActiveClass(event) {
-            const clickedLabel = event.currentTarget;
-            clickedLabel.classList.toggle("_active");
-        }
-        showroomLabels.forEach((function(label) {
-            label.addEventListener("click", toggleActiveClass);
-        }));
-        document.addEventListener("click", (function(event) {
-            showroomLabels.forEach((function(label) {
-                const isClickInsideLabel = label.contains(event.target);
-                if (!isClickInsideLabel) label.classList.remove("_active");
-            }));
-        }));
         window["FLS"] = false;
         isWebp();
         menuInit();
