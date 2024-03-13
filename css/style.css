@@ -4164,7 +4164,8 @@ textarea {
 }
 ._spoller-init .spollers-product-card__title._spoller-active::after {
   -webkit-transform: translate(0,50%) rotate(-90deg);
-  transform: translate(0,50%) rotate(-90deg)
+  transform: translate(0,50%) rotate(-90deg);
+  height: .84375rem
 }
 .spollers-product-card__body {
   padding: .25rem 1rem 1rem 1rem;
@@ -4239,7 +4240,8 @@ textarea {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.33
+  line-height: 1.33;
+  text-transform: uppercase
 }
 .item-other-goods__name:not(:last-child) {
   margin-bottom: 1rem
