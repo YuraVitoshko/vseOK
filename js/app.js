@@ -9242,12 +9242,48 @@
                     observer: true,
                     observeParents: true,
                     spaceBetween: 10,
+                    autoHeight: "true",
                     thumbs: {
                         swiper: ".product-card__slider-small"
                     },
                     on: {}
                 });
             }
+            if (document.querySelector(".other-goods__slider")) new swiper_core_Swiper(".other-goods__slider", {
+                modules: [ Navigation ],
+                observer: true,
+                observeParents: true,
+                initialSlide: 1,
+                spaceBetween: 12,
+                speed: 800,
+                breakpoints: {
+                    360: {
+                        slidesPerView: 1.8,
+                        centeredSlides: true,
+                        spaceBetween: 4
+                    },
+                    480: {
+                        slidesPerView: 1.8,
+                        centeredSlides: true,
+                        spaceBetween: 12
+                    },
+                    768: {
+                        slidesPerView: "auto",
+                        centeredSlides: true,
+                        spaceBetween: 12
+                    },
+                    992: {
+                        slidesPerView: "auto",
+                        centeredSlides: true,
+                        spaceBetween: 12
+                    },
+                    1268: {
+                        slidesPerView: 4,
+                        spaceBetween: 12
+                    }
+                },
+                on: {}
+            });
         }
         window.addEventListener("load", (function(e) {
             initSliders();

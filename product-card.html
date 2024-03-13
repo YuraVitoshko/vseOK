@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240313173555">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240313194813">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -194,7 +194,7 @@
 			</div>
 			<section class="product-card">
 				<div class="product-card__container">
-					<div data-watch data-watch-once data-watch-threshold="0.3" class="product-card__breadcrumbs breadcrumbs">
+					<div class="product-card__breadcrumbs breadcrumbs breadcrumbs--no-animation">
 						<div class="breadcrumbs__inner">
 							<ul class="breadcrumbs__list breadcrumbs__list--more">
 								<li class="breadcrumbs__item">
@@ -291,7 +291,68 @@
 									</div>
 								</details>
 							</div>
-							<a href="#" class="content-product-card__button">Замовити через месенджер</a>
+							<div class="content-product-card__btn">
+								<a data-popup="#popup-product-card" href="#" class="content-product-card__button">Замовити через месенджер</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="other-goods">
+				<div class="other-goods__container">
+					<h2 data-watch data-watch-once data-watch-threshold="0.3" class="other-goods__title">Інші товари</h2>
+					<div data-watch data-watch-once data-watch-threshold="0.3" class="other-goods__body">
+						<div class="other-goods__slider swiper">
+							<div class="other-goods__wrapper swiper-wrapper">
+								<div class="other-goods__slide swiper-slide">
+									<a href="#" class="other-goods__item item-other-goods">
+										<div class="item-other-goods__image">
+											<picture><source srcset="img/other-goods/01.webp" type="image/webp"><img src="img/other-goods/01.jpg" alt="Image"></picture>
+											<span class="item-other-goods__label">-20%</span>
+										</div>
+										<div class="item-other-goods__name">Годинник</div>
+										<div class="item-other-goods__prices">
+											<div class="item-other-goods__old-price">₴4200</div>
+											<div class="item-other-goods__new-price">₴3360</div>
+										</div>
+									</a>
+								</div>
+								<div class="other-goods__slide swiper-slide">
+									<a href="#" class="other-goods__item item-other-goods">
+										<div class="item-other-goods__image">
+											<picture><source srcset="img/other-goods/02.webp" type="image/webp"><img src="img/other-goods/02.jpg" alt="Image"></picture>
+										</div>
+										<div class="item-other-goods__name">ENHET</div>
+										<div class="item-other-goods__prices">
+											<div class="item-other-goods__new-price">₴2960</div>
+										</div>
+									</a>
+								</div>
+								<div class="other-goods__slide swiper-slide">
+									<a href="#" class="other-goods__item item-other-goods">
+										<div class="item-other-goods__image">
+											<picture><source srcset="img/other-goods/03.webp" type="image/webp"><img src="img/other-goods/03.jpg" alt="Image"></picture>
+											<span class="item-other-goods__label">-20%</span>
+										</div>
+										<div class="item-other-goods__name">LILLVIKEN</div>
+										<div class="item-other-goods__prices">
+											<div class="item-other-goods__old-price">₴3900</div>
+											<div class="item-other-goods__new-price">₴3360</div>
+										</div>
+									</a>
+								</div>
+								<div class="other-goods__slide swiper-slide">
+									<a href="#" class="other-goods__item item-other-goods">
+										<div class="item-other-goods__image">
+											<picture><source srcset="img/other-goods/04.webp" type="image/webp"><img src="img/other-goods/04.jpg" alt="Image"></picture>
+										</div>
+										<div class="item-other-goods__name">ЛАМІНАТ</div>
+										<div class="item-other-goods__prices">
+											<div class="item-other-goods__new-price">₴1999</div>
+										</div>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -343,30 +404,22 @@
 				</div>
 			</div>
 		</footer>
-		<!-- <div id="popup-card" aria-hidden="true" class="popup-card">
-	<div class="popup-card__wrapper">
-		<div class="popup-card__content">
-			<button data-close type="button" class="popup-card__close"><img src="img/icons/close-white.svg" alt="Image"></button>
-			<div class="popup-card__box">
-				<div class="popup-card__column-left">
-					<h2 class="popup-card__title">Що таке ремонт</h2></div>
-				<div class="popup-card__column-right">
-					<div class="popup-card__text">
-						<p>Ремонт – це завжди можливість перетворити своє житло, додати нових барв і комфорту в повсякденне життя. Планування
-						ремонту слід починати з визначення основних задач, які ви хочете вирішити: чи це буде косметичний ремонт або капітальна
-						перебудова простору. Важливо також врахувати бюджет, який ви готові виділити на ремонтні роботи, адже від цього
-						залежатиме вибір матеріалів і технологій.</p>
-						<p>Після того, як мета ремонту визначена, можна переходити до створення дизайн-проекту. Не варто недооцінювати цей етап,
-						адже грамотно спланований дизайн не тільки зробить ваше житло більш естетичним і функціональним, але й допоможе уникнути
-						зайвих витрат під час ремонту.</p>
+		<div id="popup-product-card" aria-hidden="true" class="popup-product-card">
+			<div class="popup-product-card__wrapper">
+				<div class="popup-product-card__content">
+					<button data-close type="button" class="popup-product-card__close"><img src="img/icons/close-dark.svg" alt="Image"></button>
+					<div class="popup-product-card__box">
+						<h3 class="popup-product-card__title">Де зручніше зробити замовлення?</h3>
+						<div class="popup-product-card__buttons">
+							<a href="#" class="popup-product-card__btn _icon-telegram">Написати в Telegram</a>
+							<a href="#" class="popup-product-card__btn _icon-whatsapp">Написати в Watsapp</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div> -->
-	</div>
-	<script src="js/app.min.js?_v=20240313173555"></script>
+	<script src="js/app.min.js?_v=20240313194813"></script>
 </body>
 
 </html>
