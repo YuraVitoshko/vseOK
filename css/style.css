@@ -3912,8 +3912,8 @@ textarea {
 .showroom-projects-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover
+  -o-object-fit: contain;
+  object-fit: contain
 }
 .showroom-projects-label {
   cursor: pointer;
@@ -4998,9 +4998,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .title-showroom-projects {
     font-size: 3.125rem
   }
-  .showroom-projects-img {
-    height: 50rem
-  }
   .product-card {
     padding-top: 11.625rem
   }
@@ -5477,20 +5474,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: .625rem;
     font-size: .75rem
   }
-  .item-furniture-room__label--01 {
-    left: 7%;
-    bottom: 3%
-  }
-  .item-furniture-room__label--02 {
-    left: 20%
-  }
-  .item-furniture-room__label--06 {
-    right: 20%
-  }
-  .item-furniture-room__label--07 {
-    right: 11%;
-    bottom: 20%
-  }
   .product-card {
     padding-bottom: 7.5rem
   }
@@ -5718,9 +5701,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .title-showroom-projects {
     font-size: 2rem
   }
-  .showroom-projects-img {
-    height: 18.75rem
-  }
   .product-card {
     padding-top: 7.5rem
   }
@@ -5911,16 +5891,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   @supports not (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
     .title-showroom-projects {
       font-size: calc(2rem + 1.125 * (100vw - 22.5rem)/ 74.5)
-    }
-  }
-  @supports (height:clamp(18.75rem ,9.3120805369rem + 41.9463087248vw ,50rem)) {
-    .showroom-projects-img {
-      height: clamp(18.75rem ,9.3120805369rem + 41.9463087248vw ,50rem)
-    }
-  }
-  @supports not (height:clamp(18.75rem ,9.3120805369rem + 41.9463087248vw ,50rem)) {
-    .showroom-projects-img {
-      height: calc(18.75rem + 31.25 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports (padding-top:clamp(7.5rem ,6.2541946309rem + 5.5369127517vw ,11.625rem)) {
