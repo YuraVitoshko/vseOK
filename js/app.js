@@ -5765,14 +5765,14 @@
             }
         }
         flsModules.select = new SelectConstructor({});
-        function isObject(obj) {
+        function ssr_window_esm_isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
         function extend(target, src) {
             if (target === void 0) target = {};
             if (src === void 0) src = {};
             Object.keys(src).forEach((key => {
-                if (typeof target[key] === "undefined") target[key] = src[key]; else if (isObject(src[key]) && isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
+                if (typeof target[key] === "undefined") target[key] = src[key]; else if (ssr_window_esm_isObject(src[key]) && ssr_window_esm_isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
             }));
         }
         const ssrDocument = {
@@ -6065,14 +6065,6 @@
                 parent = parent.parentElement;
             }
             return parents;
-        }
-        function utils_elementTransitionEnd(el, callback) {
-            function fireCallBack(e) {
-                if (e.target !== el) return;
-                callback.call(el, e);
-                el.removeEventListener("transitionend", fireCallBack);
-            }
-            if (callback) el.addEventListener("transitionend", fireCallBack);
         }
         function utils_elementOuterSize(el, size, includeMargins) {
             const window = ssr_window_esm_getWindow();
@@ -8876,312 +8868,6 @@
                 destroy
             });
         }
-        function Thumb(_ref) {
-            let {swiper, extendParams, on} = _ref;
-            extendParams({
-                thumbs: {
-                    swiper: null,
-                    multipleActiveThumbs: true,
-                    autoScrollOffset: 0,
-                    slideThumbActiveClass: "swiper-slide-thumb-active",
-                    thumbsContainerClass: "swiper-thumbs"
-                }
-            });
-            let initialized = false;
-            let swiperCreated = false;
-            swiper.thumbs = {
-                swiper: null
-            };
-            function onThumbClick() {
-                const thumbsSwiper = swiper.thumbs.swiper;
-                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
-                const clickedIndex = thumbsSwiper.clickedIndex;
-                const clickedSlide = thumbsSwiper.clickedSlide;
-                if (clickedSlide && clickedSlide.classList.contains(swiper.params.thumbs.slideThumbActiveClass)) return;
-                if (typeof clickedIndex === "undefined" || clickedIndex === null) return;
-                let slideToIndex;
-                if (thumbsSwiper.params.loop) slideToIndex = parseInt(thumbsSwiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10); else slideToIndex = clickedIndex;
-                if (swiper.params.loop) swiper.slideToLoop(slideToIndex); else swiper.slideTo(slideToIndex);
-            }
-            function init() {
-                const {thumbs: thumbsParams} = swiper.params;
-                if (initialized) return false;
-                initialized = true;
-                const SwiperClass = swiper.constructor;
-                if (thumbsParams.swiper instanceof SwiperClass) {
-                    swiper.thumbs.swiper = thumbsParams.swiper;
-                    Object.assign(swiper.thumbs.swiper.originalParams, {
-                        watchSlidesProgress: true,
-                        slideToClickedSlide: false
-                    });
-                    Object.assign(swiper.thumbs.swiper.params, {
-                        watchSlidesProgress: true,
-                        slideToClickedSlide: false
-                    });
-                    swiper.thumbs.swiper.update();
-                } else if (utils_isObject(thumbsParams.swiper)) {
-                    const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
-                    Object.assign(thumbsSwiperParams, {
-                        watchSlidesProgress: true,
-                        slideToClickedSlide: false
-                    });
-                    swiper.thumbs.swiper = new SwiperClass(thumbsSwiperParams);
-                    swiperCreated = true;
-                }
-                swiper.thumbs.swiper.el.classList.add(swiper.params.thumbs.thumbsContainerClass);
-                swiper.thumbs.swiper.on("tap", onThumbClick);
-                return true;
-            }
-            function update(initial) {
-                const thumbsSwiper = swiper.thumbs.swiper;
-                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
-                const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
-                let thumbsToActivate = 1;
-                const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
-                if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) thumbsToActivate = swiper.params.slidesPerView;
-                if (!swiper.params.thumbs.multipleActiveThumbs) thumbsToActivate = 1;
-                thumbsToActivate = Math.floor(thumbsToActivate);
-                thumbsSwiper.slides.forEach((slideEl => slideEl.classList.remove(thumbActiveClass)));
-                if (thumbsSwiper.params.loop || thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled) for (let i = 0; i < thumbsToActivate; i += 1) utils_elementChildren(thumbsSwiper.slidesEl, `[data-swiper-slide-index="${swiper.realIndex + i}"]`).forEach((slideEl => {
-                    slideEl.classList.add(thumbActiveClass);
-                })); else for (let i = 0; i < thumbsToActivate; i += 1) if (thumbsSwiper.slides[swiper.realIndex + i]) thumbsSwiper.slides[swiper.realIndex + i].classList.add(thumbActiveClass);
-                const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
-                const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
-                if (swiper.realIndex !== thumbsSwiper.realIndex || useOffset) {
-                    const currentThumbsIndex = thumbsSwiper.activeIndex;
-                    let newThumbsIndex;
-                    let direction;
-                    if (thumbsSwiper.params.loop) {
-                        const newThumbsSlide = thumbsSwiper.slides.filter((slideEl => slideEl.getAttribute("data-swiper-slide-index") === `${swiper.realIndex}`))[0];
-                        newThumbsIndex = thumbsSwiper.slides.indexOf(newThumbsSlide);
-                        direction = swiper.activeIndex > swiper.previousIndex ? "next" : "prev";
-                    } else {
-                        newThumbsIndex = swiper.realIndex;
-                        direction = newThumbsIndex > swiper.previousIndex ? "next" : "prev";
-                    }
-                    if (useOffset) newThumbsIndex += direction === "next" ? autoScrollOffset : -1 * autoScrollOffset;
-                    if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
-                        if (thumbsSwiper.params.centeredSlides) if (newThumbsIndex > currentThumbsIndex) newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1; else newThumbsIndex = newThumbsIndex + Math.floor(slidesPerView / 2) - 1; else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1) ;
-                        thumbsSwiper.slideTo(newThumbsIndex, initial ? 0 : void 0);
-                    }
-                }
-            }
-            on("beforeInit", (() => {
-                const {thumbs} = swiper.params;
-                if (!thumbs || !thumbs.swiper) return;
-                if (typeof thumbs.swiper === "string" || thumbs.swiper instanceof HTMLElement) {
-                    const document = ssr_window_esm_getDocument();
-                    const getThumbsElementAndInit = () => {
-                        const thumbsElement = typeof thumbs.swiper === "string" ? document.querySelector(thumbs.swiper) : thumbs.swiper;
-                        if (thumbsElement && thumbsElement.swiper) {
-                            thumbs.swiper = thumbsElement.swiper;
-                            init();
-                            update(true);
-                        } else if (thumbsElement) {
-                            const onThumbsSwiper = e => {
-                                thumbs.swiper = e.detail[0];
-                                thumbsElement.removeEventListener("init", onThumbsSwiper);
-                                init();
-                                update(true);
-                                thumbs.swiper.update();
-                                swiper.update();
-                            };
-                            thumbsElement.addEventListener("init", onThumbsSwiper);
-                        }
-                        return thumbsElement;
-                    };
-                    const watchForThumbsToAppear = () => {
-                        if (swiper.destroyed) return;
-                        const thumbsElement = getThumbsElementAndInit();
-                        if (!thumbsElement) requestAnimationFrame(watchForThumbsToAppear);
-                    };
-                    requestAnimationFrame(watchForThumbsToAppear);
-                } else {
-                    init();
-                    update(true);
-                }
-            }));
-            on("slideChange update resize observerUpdate", (() => {
-                update();
-            }));
-            on("setTransition", ((_s, duration) => {
-                const thumbsSwiper = swiper.thumbs.swiper;
-                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
-                thumbsSwiper.setTransition(duration);
-            }));
-            on("beforeDestroy", (() => {
-                const thumbsSwiper = swiper.thumbs.swiper;
-                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
-                if (swiperCreated) thumbsSwiper.destroy();
-            }));
-            Object.assign(swiper.thumbs, {
-                init,
-                update
-            });
-        }
-        function freeMode(_ref) {
-            let {swiper, extendParams, emit, once} = _ref;
-            extendParams({
-                freeMode: {
-                    enabled: false,
-                    momentum: true,
-                    momentumRatio: 1,
-                    momentumBounce: true,
-                    momentumBounceRatio: 1,
-                    momentumVelocityRatio: 1,
-                    sticky: false,
-                    minimumVelocity: .02
-                }
-            });
-            function onTouchStart() {
-                if (swiper.params.cssMode) return;
-                const translate = swiper.getTranslate();
-                swiper.setTranslate(translate);
-                swiper.setTransition(0);
-                swiper.touchEventsData.velocities.length = 0;
-                swiper.freeMode.onTouchEnd({
-                    currentPos: swiper.rtl ? swiper.translate : -swiper.translate
-                });
-            }
-            function onTouchMove() {
-                if (swiper.params.cssMode) return;
-                const {touchEventsData: data, touches} = swiper;
-                if (data.velocities.length === 0) data.velocities.push({
-                    position: touches[swiper.isHorizontal() ? "startX" : "startY"],
-                    time: data.touchStartTime
-                });
-                data.velocities.push({
-                    position: touches[swiper.isHorizontal() ? "currentX" : "currentY"],
-                    time: utils_now()
-                });
-            }
-            function onTouchEnd(_ref2) {
-                let {currentPos} = _ref2;
-                if (swiper.params.cssMode) return;
-                const {params, wrapperEl, rtlTranslate: rtl, snapGrid, touchEventsData: data} = swiper;
-                const touchEndTime = utils_now();
-                const timeDiff = touchEndTime - data.touchStartTime;
-                if (currentPos < -swiper.minTranslate()) {
-                    swiper.slideTo(swiper.activeIndex);
-                    return;
-                }
-                if (currentPos > -swiper.maxTranslate()) {
-                    if (swiper.slides.length < snapGrid.length) swiper.slideTo(snapGrid.length - 1); else swiper.slideTo(swiper.slides.length - 1);
-                    return;
-                }
-                if (params.freeMode.momentum) {
-                    if (data.velocities.length > 1) {
-                        const lastMoveEvent = data.velocities.pop();
-                        const velocityEvent = data.velocities.pop();
-                        const distance = lastMoveEvent.position - velocityEvent.position;
-                        const time = lastMoveEvent.time - velocityEvent.time;
-                        swiper.velocity = distance / time;
-                        swiper.velocity /= 2;
-                        if (Math.abs(swiper.velocity) < params.freeMode.minimumVelocity) swiper.velocity = 0;
-                        if (time > 150 || utils_now() - lastMoveEvent.time > 300) swiper.velocity = 0;
-                    } else swiper.velocity = 0;
-                    swiper.velocity *= params.freeMode.momentumVelocityRatio;
-                    data.velocities.length = 0;
-                    let momentumDuration = 1e3 * params.freeMode.momentumRatio;
-                    const momentumDistance = swiper.velocity * momentumDuration;
-                    let newPosition = swiper.translate + momentumDistance;
-                    if (rtl) newPosition = -newPosition;
-                    let doBounce = false;
-                    let afterBouncePosition;
-                    const bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeMode.momentumBounceRatio;
-                    let needsLoopFix;
-                    if (newPosition < swiper.maxTranslate()) {
-                        if (params.freeMode.momentumBounce) {
-                            if (newPosition + swiper.maxTranslate() < -bounceAmount) newPosition = swiper.maxTranslate() - bounceAmount;
-                            afterBouncePosition = swiper.maxTranslate();
-                            doBounce = true;
-                            data.allowMomentumBounce = true;
-                        } else newPosition = swiper.maxTranslate();
-                        if (params.loop && params.centeredSlides) needsLoopFix = true;
-                    } else if (newPosition > swiper.minTranslate()) {
-                        if (params.freeMode.momentumBounce) {
-                            if (newPosition - swiper.minTranslate() > bounceAmount) newPosition = swiper.minTranslate() + bounceAmount;
-                            afterBouncePosition = swiper.minTranslate();
-                            doBounce = true;
-                            data.allowMomentumBounce = true;
-                        } else newPosition = swiper.minTranslate();
-                        if (params.loop && params.centeredSlides) needsLoopFix = true;
-                    } else if (params.freeMode.sticky) {
-                        let nextSlide;
-                        for (let j = 0; j < snapGrid.length; j += 1) if (snapGrid[j] > -newPosition) {
-                            nextSlide = j;
-                            break;
-                        }
-                        if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || swiper.swipeDirection === "next") newPosition = snapGrid[nextSlide]; else newPosition = snapGrid[nextSlide - 1];
-                        newPosition = -newPosition;
-                    }
-                    if (needsLoopFix) once("transitionEnd", (() => {
-                        swiper.loopFix();
-                    }));
-                    if (swiper.velocity !== 0) {
-                        if (rtl) momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity); else momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
-                        if (params.freeMode.sticky) {
-                            const moveDistance = Math.abs((rtl ? -newPosition : newPosition) - swiper.translate);
-                            const currentSlideSize = swiper.slidesSizesGrid[swiper.activeIndex];
-                            if (moveDistance < currentSlideSize) momentumDuration = params.speed; else if (moveDistance < 2 * currentSlideSize) momentumDuration = params.speed * 1.5; else momentumDuration = params.speed * 2.5;
-                        }
-                    } else if (params.freeMode.sticky) {
-                        swiper.slideToClosest();
-                        return;
-                    }
-                    if (params.freeMode.momentumBounce && doBounce) {
-                        swiper.updateProgress(afterBouncePosition);
-                        swiper.setTransition(momentumDuration);
-                        swiper.setTranslate(newPosition);
-                        swiper.transitionStart(true, swiper.swipeDirection);
-                        swiper.animating = true;
-                        utils_elementTransitionEnd(wrapperEl, (() => {
-                            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) return;
-                            emit("momentumBounce");
-                            swiper.setTransition(params.speed);
-                            setTimeout((() => {
-                                swiper.setTranslate(afterBouncePosition);
-                                utils_elementTransitionEnd(wrapperEl, (() => {
-                                    if (!swiper || swiper.destroyed) return;
-                                    swiper.transitionEnd();
-                                }));
-                            }), 0);
-                        }));
-                    } else if (swiper.velocity) {
-                        emit("_freeModeNoMomentumRelease");
-                        swiper.updateProgress(newPosition);
-                        swiper.setTransition(momentumDuration);
-                        swiper.setTranslate(newPosition);
-                        swiper.transitionStart(true, swiper.swipeDirection);
-                        if (!swiper.animating) {
-                            swiper.animating = true;
-                            utils_elementTransitionEnd(wrapperEl, (() => {
-                                if (!swiper || swiper.destroyed) return;
-                                swiper.transitionEnd();
-                            }));
-                        }
-                    } else swiper.updateProgress(newPosition);
-                    swiper.updateActiveIndex();
-                    swiper.updateSlidesClasses();
-                } else if (params.freeMode.sticky) {
-                    swiper.slideToClosest();
-                    return;
-                } else if (params.freeMode) emit("_freeModeNoMomentumRelease");
-                if (!params.freeMode.momentum || timeDiff >= params.longSwipesMs) {
-                    emit("_freeModeStaticRelease");
-                    swiper.updateProgress();
-                    swiper.updateActiveIndex();
-                    swiper.updateSlidesClasses();
-                }
-            }
-            Object.assign(swiper, {
-                freeMode: {
-                    onTouchStart,
-                    onTouchMove,
-                    onTouchEnd
-                }
-            });
-        }
         function initSliders() {
             if (document.querySelector(".other-projects__slider")) new swiper_core_Swiper(".other-projects__slider", {
                 modules: [ Navigation ],
@@ -9218,37 +8904,6 @@
                 },
                 on: {}
             });
-            if (document.querySelector(".product-card__body")) {
-                new swiper_core_Swiper(".product-card__slider-small", {
-                    modules: [ Navigation, freeMode ],
-                    observer: true,
-                    observeParents: true,
-                    spaceBetween: 12,
-                    slidesPerView: 4,
-                    freeMode: true,
-                    watchSlidesProgress: true,
-                    breakpoints: {
-                        360: {
-                            spaceBetween: 4
-                        },
-                        768: {
-                            spaceBetween: 12
-                        }
-                    },
-                    on: {}
-                });
-                new swiper_core_Swiper(".product-card__slider-big", {
-                    modules: [ Navigation, Thumb ],
-                    observer: true,
-                    observeParents: true,
-                    spaceBetween: 10,
-                    autoHeight: "true",
-                    thumbs: {
-                        swiper: ".product-card__slider-small"
-                    },
-                    on: {}
-                });
-            }
             if (document.querySelector(".other-goods__slider")) new swiper_core_Swiper(".other-goods__slider", {
                 modules: [ Navigation ],
                 observer: true,
@@ -9256,24 +8911,21 @@
                 initialSlide: 1,
                 spaceBetween: 12,
                 speed: 800,
+                autoHeight: "false",
+                loop: "true",
                 breakpoints: {
                     360: {
-                        slidesPerView: 1.8,
-                        centeredSlides: true,
-                        spaceBetween: 4
-                    },
-                    480: {
-                        slidesPerView: 1.8,
-                        centeredSlides: true,
-                        spaceBetween: 12
+                        slidesPerView: 1.5,
+                        spaceBetween: 8,
+                        centeredSlides: true
                     },
                     768: {
-                        slidesPerView: "auto",
+                        slidesPerView: 2.2,
                         centeredSlides: true,
-                        spaceBetween: 12
+                        spaceBetween: 8
                     },
                     992: {
-                        slidesPerView: "auto",
+                        slidesPerView: 3,
                         centeredSlides: true,
                         spaceBetween: 12
                     },

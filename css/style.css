@@ -229,71 +229,6 @@ h6 {
 .options__input:checked + .options__label .options__text {
   color: #0c5533
 }
-body::after {
-  content: "";
-  background-color: rgba(0,0,0,.5);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity .8s ease 0s;
-  pointer-events: none;
-  z-index: 149
-}
-.popup-show body::after {
-  opacity: 1
-}
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 30px 10px;
-  transition: visibility .8s ease 0s;
-  visibility: hidden;
-  pointer-events: none
-}
-.popup_show {
-  z-index: 150;
-  visibility: visible;
-  overflow: auto;
-  pointer-events: auto
-}
-.popup_show .popup__content {
-  visibility: visible;
-  -webkit-transform: scale(1);
-  transform: scale(1)
-}
-.popup__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
-  flex: 1 1 auto;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-.popup__content {
-  visibility: hidden;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  transition: -webkit-transform .3s ease 0s;
-  transition: transform .3s ease 0s;
-  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
-  background-color: #eee;
-  padding: 20px;
-  width: 100%;
-  max-width: 900px;
-  border-radius: 20px
-}
-.lock .popup__content {
-  visibility: visible
-}
 .ibg {
   width: 100%;
   height: 100%;
@@ -2239,7 +2174,7 @@ body::after {
   position: relative;
   justify-self: center;
   padding: .625rem .9375rem;
-  display: flex;
+  display: inline-flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
@@ -3954,30 +3889,6 @@ textarea {
   right: 17.7%;
   bottom: 26%
 }
-.item-furniture-bathroom__label--01 {
-  left: 9.8%;
-  bottom: 46.3%
-}
-.item-furniture-bathroom__label--02 {
-  bottom: 24%;
-  left: 10.85%
-}
-.item-furniture-bathroom__label--03 {
-  bottom: 41%;
-  left: 20.65%
-}
-.item-furniture-bathroom__label--04 {
-  bottom: 15%;
-  left: 21%
-}
-.item-furniture-bathroom__label--05 {
-  top: 48%;
-  left: 35%
-}
-.item-furniture-kitchen__label--01 {
-  left: 9.27%;
-  bottom: 10.25%
-}
 .product-card {
   background-color: #0a0a0a;
   padding-bottom: 10rem
@@ -3994,22 +3905,31 @@ textarea {
   align-self: start;
   min-width: 0
 }
-.product-card__slider-big:not(:last-child) {
-  margin-bottom: .75rem
+.gallery-product-card {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: .75rem
 }
-.slider-big__box-slide {
-  max-height: 100%;
+.gallery-product-card__image {
+  position: relative;
+  max-height: 18.75rem;
   max-width: 100%;
-  position: relative
+  overflow: hidden
 }
-.slider-big__box-slide img {
-  display: block;
-  height: 100%;
+.gallery-product-card__image img {
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
-  object-fit: cover
+  object-fit: cover;
+  -o-object-position: bottom;
+  object-position: bottom;
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s,-webkit-transform .3s
 }
-.slider-big__label {
+.gallery-product-card__label {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -4020,24 +3940,6 @@ textarea {
   text-transform: uppercase;
   font-weight: 500;
   line-height: 1
-}
-.slider-small__slide {
-  opacity: .4;
-  cursor: pointer
-}
-.slider-small__box-slide {
-  width: 100%;
-  height: 100%
-}
-.slider-small__box-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover
-}
-.slider-small .swiper-slide-thumb-active {
-  opacity: 1
 }
 .content-product-card {
   color: #fff
@@ -4209,10 +4111,17 @@ textarea {
   -webkit-transform: translateY(0);
   transform: translateY(0)
 }
+.other-goods__slide {
+  width: 100%;
+  height: 100%
+}
+.item-other-goods {
+  width: 100%
+}
 .item-other-goods__image {
   position: relative;
-  max-width: 100%;
-  max-height: 100%
+  width: 100%;
+  height: 18.75rem
 }
 .item-other-goods__image img {
   width: 100%;
@@ -5489,10 +5398,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .product-card__media {
     padding-right: 0
   }
-  .product-card__slider-big:not(:last-child) {
-    margin-bottom: .25rem
-  }
-  .slider-big__label {
+  .gallery-product-card__label {
     top: .75rem;
     right: .75rem
   }
@@ -5506,6 +5412,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .content-product-card__button {
     padding: .625rem 1.5rem;
     font-size: 1rem
+  }
+  .item-other-goods__image {
+    height: 15.625rem
   }
   .item-other-goods__label {
     top: .25rem;
@@ -5642,6 +5551,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .title-showroom-projects:not(:last-child) {
     margin-bottom: 1.5rem
+  }
+  .item-other-goods__image {
+    height: 10.625rem
   }
 }
 @media (max-width:22.5em) {
@@ -6086,6 +5998,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .showroom-projects-label:hover {
     background-color: #0a0a0a
+  }
+  .gallery-product-card__item:hover .gallery-product-card__image img {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04)
   }
   .content-product-card__button:hover {
     color: #fff;
