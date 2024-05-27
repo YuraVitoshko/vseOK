@@ -2781,17 +2781,23 @@ body::after {
   opacity: 0;
   -webkit-transform: translateY(20%);
   transform: translateY(20%);
-  transition: all .8s ease .1s
+  transition: opacity .8s ease .1s,-webkit-transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s,-webkit-transform .8s ease .1s
 }
 .statistic__item:nth-child(2) {
   border-left: .0625rem solid #2e2e2e;
   border-right: .0625rem solid #2e2e2e
 }
 .statistic__item:nth-child(2) {
-  transition: all .8s ease .3s
+  transition: opacity .8s ease .1s,-webkit-transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s,-webkit-transform .8s ease .1s
 }
 .statistic__item:nth-child(3) {
-  transition: all .8s ease .5s
+  transition: opacity .8s ease .1s,-webkit-transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s;
+  transition: opacity .8s ease .1s,transform .8s ease .1s,-webkit-transform .8s ease .1s
 }
 .statistic__item._watcher-view {
   opacity: 1;
@@ -2809,6 +2815,80 @@ body::after {
   color: #c2c2c2;
   font-size: 1.25rem;
   line-height: 1.4
+}
+.stages-of-cooperation {
+  background-color: #fff;
+  padding-top: 10rem;
+  padding-bottom: 10rem
+}
+.stages-of-cooperation__title {
+  color: #0a0a0a;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.16;
+  opacity: 0;
+  -webkit-transform: translateY(20%);
+  transform: translateY(20%);
+  transition: opacity .8s,-webkit-transform .8s;
+  transition: opacity .8s,transform .8s;
+  transition: opacity .8s,transform .8s,-webkit-transform .8s
+}
+.stages-of-cooperation__title:not(:last-child) {
+  margin-bottom: 8rem
+}
+.stages-of-cooperation__title._watcher-view {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0)
+}
+.stages-of-cooperation__items {
+  display: grid;
+  -webkit-column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 5rem;
+  grid-template-columns: repeat(3,1fr)
+}
+.stages-of-cooperation__item {
+  background-color: #f7f7f7;
+  padding: 4.5625rem 1.5rem 5.5rem;
+  position: relative;
+  opacity: 0;
+  -webkit-transform: translateY(15%);
+  transform: translateY(15%);
+  transition: opacity .8s,-webkit-transform .8s;
+  transition: opacity .8s,transform .8s;
+  transition: opacity .8s,transform .8s,-webkit-transform .8s
+}
+.stages-of-cooperation__item._watcher-view {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0)
+}
+.stages-of-cooperation__label {
+  position: absolute;
+  top: -2rem;
+  left: 1.5rem;
+  padding: 1rem;
+  background-color: #0a0a0a;
+  color: #fff;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px
+}
+.stages-of-cooperation__name {
+  color: #0a0a0a;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.33
+}
+.stages-of-cooperation__name:not(:last-child) {
+  margin-bottom: 1rem
+}
+.stages-of-cooperation__text {
+  color: #5c5c5c;
+  line-height: 1.44
 }
 .contacts {
   background-color: #fff;
@@ -4864,6 +4944,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .statistic__title {
     font-size: 3.125rem
   }
+  .stages-of-cooperation__title {
+    font-size: 3.125rem
+  }
   .contacts__title {
     font-size: 3.125rem
   }
@@ -5092,8 +5175,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .statistic__item:nth-child(2),
   .statistic__item:nth-child(3) {
-    transition: all .8s ease .1s;
+    transition: opacity .8s ease .1s,-webkit-transform .8s ease .1s;
+    transition: opacity .8s ease .1s,transform .8s ease .1s;
+    transition: opacity .8s ease .1s,transform .8s ease .1s,-webkit-transform .8s ease .1s;
     padding-top: 3rem
+  }
+  .stages-of-cooperation__items {
+    grid-template-columns: repeat(2,1fr)
   }
   .tabs-projects__button {
     padding: .625rem 1rem
@@ -5254,6 +5342,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .statistic {
     padding-top: 4rem;
     padding-bottom: 4rem
+  }
+  .stages-of-cooperation__title:not(:last-child) {
+    margin-bottom: 6rem
   }
   .contacts {
     padding-top: 7.5rem;
@@ -5467,6 +5558,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 @media (max-width:37.5em) {
+  .stages-of-cooperation__items {
+    grid-template-columns: auto
+  }
   .form-contacts {
     min-width: 100%;
     padding: 3rem 1rem
@@ -5625,6 +5719,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .statistic__title {
     font-size: 2.5rem
   }
+  .stages-of-cooperation__title {
+    font-size: 2rem
+  }
   .contacts__title {
     font-size: 2rem
   }
@@ -5738,6 +5835,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   @supports not (font-size:clamp(2.5rem ,2.3112416107rem + 0.8389261745vw ,3.125rem)) {
     .statistic__title {
       font-size: calc(2.5rem + .625 * (100vw - 22.5rem)/ 74.5)
+    }
+  }
+  @supports (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
+    .stages-of-cooperation__title {
+      font-size: clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)
+    }
+  }
+  @supports not (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
+    .stages-of-cooperation__title {
+      font-size: calc(2rem + 1.125 * (100vw - 22.5rem)/ 74.5)
     }
   }
   @supports (font-size:clamp(2rem ,1.6602348993rem + 1.5100671141vw ,3.125rem)) {
