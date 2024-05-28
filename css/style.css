@@ -2867,15 +2867,16 @@ body::after {
 }
 .stages-of-cooperation__label {
   position: absolute;
+  width: 5rem;
+  text-align: center;
   top: -2rem;
   left: 1.5rem;
   padding: 1rem;
   background-color: #0a0a0a;
   color: #fff;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 48px
+  font-weight: 500
 }
 .stages-of-cooperation__name {
   color: #0a0a0a;
